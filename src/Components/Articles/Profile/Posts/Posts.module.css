@@ -1,0 +1,14 @@
+.Posts{
+	padding: 10px;
+	text-align: center;
+}
+.Posts > .Posts_Form > textarea{
+	width: 80%;
+	resize: none;
+}
+.Posts > .Posts_Form > button{
+	width: 50%;
+	border: 1px solid silver;
+	border-radius: 5px;
+	cursor: pointer;
+}

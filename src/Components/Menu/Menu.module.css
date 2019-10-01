@@ -1,0 +1,19 @@
+.menu{
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: -5px;
+}
+.menu > .menu_item{
+    text-align: center;
+    padding: 5px;
+    border-bottom: 1px solid #D7A3EA;
+}
+.menu > .menu_item > a{
+  text-decoration: none;
+}
+.menu > .menu_item > a.active{
+	background: #E3CEEA;
+	border: 1px solid #D7A3EA;
+	border-radius: 10px 10px 0 0;
+	border-bottom: 0;
+}

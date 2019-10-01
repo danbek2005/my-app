@@ -1,0 +1,8 @@
+.feedback{
+  position: fixed;
+  left: 1%;
+  top: 73%;
+}
+.feedback > .feedback_item > .feedback_img{
+  width: 10%;
+}

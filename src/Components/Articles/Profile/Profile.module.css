@@ -1,0 +1,7 @@
+.Profile{
+	display: grid;
+	width: 100%;
+	background: #E3CEEA;
+	padding: 10px;
+	grid-template-columns: 40% 60%;
+}

@@ -1,0 +1,15 @@
+.Like{
+	text-align: left;
+}
+.active_Button, .default_Button{
+	outline: none;
+}
+
+.active_Button{
+	background: #5FBCFF;
+	box-shadow: 1px 2px 5px 0px;
+	transition: box-shadow 0.5s;
+}
+.default_Button{
+	transition: box-shadow 0.5s;
+}

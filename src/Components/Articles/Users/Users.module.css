@@ -1,0 +1,13 @@
+.UsersPage{
+	padding: 5px;
+	display: grid;
+	grid-template-columns: 35% 65%;
+}
+.Users{
+	display: grid;
+	grid-row-gap: 5px;
+}
+.Users > .Loading{
+	text-align: center;
+	width: 50%;
+}

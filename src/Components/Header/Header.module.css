@@ -1,0 +1,33 @@
+.header > .header_titleImg{
+  width: 105%;
+}
+.Error{
+	color: red;
+}
+.LoginForm{
+	display: grid;
+	width: 30%;
+	position:fixed;
+    top:0;
+   	right:0;
+	grid-template-rows: repeat(3, 1fr);
+	padding: 10px;
+	border-radius: 10px 0px 0px 10px;
+	background: #E2EA4E;
+}
+.LoginForm:hover{
+	box-shadow: 10px 10px 20px 10px;
+	transition: box-shadow 1.5s
+}
+.LoginForm:not(:hover){
+	transition: box-shadow 3s
+}
+.userInfo{
+	position:fixed;
+    top: 0;
+   	right: 0;
+	margin-right: 10px;
+}
+.CommonError{
+	color: red;
+}

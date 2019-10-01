@@ -1,0 +1,11 @@
+.FormControl{
+
+}
+
+.FormControl > .FormControl_Field > .error_Field{
+	border: 1px solid red;
+}
+
+.FormControl > .FormControl_Span{
+	color: red;
+}
