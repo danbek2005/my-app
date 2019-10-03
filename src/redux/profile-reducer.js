@@ -1,4 +1,4 @@
-import API from 'C:/Users/danbe/Downloads/my-app/src/API/api.js';
+import API from './../API/api.js';
 import {profile_setProfilePage,
 		profile_setProfilePosts,
 		profile_setNewPostVal,

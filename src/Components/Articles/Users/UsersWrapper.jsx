@@ -1,28 +1,27 @@
 import React, {useEffect} from 'react';
 import classes from './Users.module.css';
-import * as axios from 'axios';
 import Users from './Users.jsx';
 import FollowPreloader from './../../Common/Preloader/FollowPreloader.jsx';
 import UserWrapper from './User/UserWrapper.jsx';
 
-let UsersWrapper = (props) => {
+let UsersWrapper = ({users, reqUsers, currentPage, pageSize, follows, isAuth, FollowLoading, changeFollow, authId, totalCount, changePage}) => {
 
 	useEffect(() => {
-		props.reqUsers(props.currentPage, props.pageSize, props.follows, props.isAuth);
-	}, [props.currentPage]);
+		reqUsers(currentPage, pageSize, follows, isAuth);
+	}, [currentPage]);
 
 
 
-	if(props.users.length == 0){
-		props.reqUsers(props.currentPage, props.pageSize, props.follows, props.isAuth);
+	if(users.length == 0){
+		reqUsers(currentPage, pageSize, follows, isAuth);
 	}
 
-	let usersEl = [...props.users].map((user) => {
-		let followElement = props.FollowLoading.status == true && props.FollowLoading.id == user.id ? <FollowPreloader /> : <button onClick={(e) => {
-			props.changeFollow(e.target.innerHTML, props.authId, user.id);
+	let usersEl = [...users].map((user) => {
+		let followElement = FollowLoading.status == true && FollowLoading.id == user.id ? <FollowPreloader /> : <button onClick={(e) => {
+			changeFollow(e.target.innerHTML, authId, user.id);
 		}}>{user.followed}</button>
 
-		if(props.isAuth == false){
+		if(isAuth == false){
 			followElement = null;
 		}
 
@@ -35,7 +34,7 @@ let UsersWrapper = (props) => {
 	})
 
 	return (
-		<Users usersEl={usersEl} changeFollow={props.changeFollow} totalCount={props.totalCount} pageSize={props.pageSize} currentPage={props.currentPage} changePage={props.changePage} />
+		<Users usersEl={usersEl} changeFollow={changeFollow} totalCount={totalCount} pageSize={pageSize} currentPage={currentPage} changePage={changePage} />
 	)
 }
 
