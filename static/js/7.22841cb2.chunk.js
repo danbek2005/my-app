@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{344:function(t,n,e){t.exports={Settings:"Settings_Settings__2Vap5"}},348:function(t,n,e){"use strict";e.r(n);var s=e(0),i=e.n(s),a=e(344),c=e.n(a);n.default=function(){return i.a.createElement("div",{className:c.a.Settings},"Settings")}}}]);
-//# sourceMappingURL=7.22841cb2.chunk.js.map

@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{341:function(n,c,s){n.exports={Music:"Music_Music___3gKy"}},347:function(n,c,s){"use strict";s.r(c);var i=s(0),u=s.n(i),e=s(341),t=s.n(e);c.default=function(){return u.a.createElement("div",{className:t.a.Music},"Music")}}}]);
-//# sourceMappingURL=5.800e44d3.chunk.js.map
