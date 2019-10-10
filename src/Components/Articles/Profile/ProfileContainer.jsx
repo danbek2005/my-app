@@ -3,7 +3,7 @@ import Profile from './Profile.jsx';
 import classes from './Posts/Posts.module.css';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-import {getProfile, getPosts, setPost, updatePost, deletePost, updateLikesVal} from 'C:/Users/danbe/Downloads/my-app/src/redux/profile-reducer.js';
+import {getProfile, getPosts, setPost, updatePost, deletePost, updateLikesVal} from './../../../redux/profile-reducer';
 import withAuthRedirect from './../../../HOC/withAuthRedirect.jsx';
 import {compose} from 'redux';
 import Preloader from './../../Common/Preloader/Preloader.jsx';
@@ -47,7 +47,7 @@ export default compose(
 	useEffect(() => {
 		props.getProfile(props.location.pathname, props.authId);
 	}, [props.location.pathname]);
-	
+
 	if(!props.profilePage.isPostHave && props.profilePage.user.id){
 		props.getPosts(props.profilePage.user.id);
 	}

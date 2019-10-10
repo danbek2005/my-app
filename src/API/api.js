@@ -11,22 +11,22 @@ class API{
     -----------------------------*/
 
     reqUsers(currentPage, pageSize){
-        return axios.get(this.baseUrl+"?type=users&currentPage="+currentPage+"&pageSize="+pageSize);
+        return axios.get(this.baseUrl+"?type=GET_USERS&currentPage="+currentPage+"&pageSize="+pageSize);
     }
     auth(data){
-        return axios.get(this.baseUrl + "?type=auth&name="+data.name+"&mail="+data.mail+"&password=" + data.password)
+        return axios.get(this.baseUrl + "?type=AUTH&name="+data.name+"&mail="+data.mail+"&password=" + data.password)
     }
     checkField(data){
-        return axios.get(this.baseUrl + "?type=checkField&key=" + data.type + "&value=" + data.value);
+        return axios.get(this.baseUrl + "?type=CHECK_FIELD&key=" + data.type + "&value=" + data.value);
        }
     getProfile(id){
-        return axios.get(this.baseUrl + "?type=profile&id=" + id);
+        return axios.get(this.baseUrl + "?type=GET_PROFILE&id=" + id);
     }
     getNewFollows(obj){
-        return axios.get(this.baseUrl + "?type=getNewFollow&name="+obj['name']+"&mail="+obj['mail']);
+        return axios.get(this.baseUrl + "?type=GET_NEW_FOLLOWS&name="+obj['name']+"&mail="+obj['mail']);
     }
     getPosts(id){
-        return axios.get(this.baseUrl + "?type=getPosts&id=" + id);
+        return axios.get(this.baseUrl + "?type=GET_POSTS&id=" + id);
     }
 
     /*-----------------------------
