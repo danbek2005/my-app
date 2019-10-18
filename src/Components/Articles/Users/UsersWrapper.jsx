@@ -5,7 +5,7 @@ import FollowPreloader from './../../Common/Preloader/FollowPreloader.jsx';
 import UserWrapper from './User/UserWrapper.jsx';
 
 let UsersWrapper = ({users, reqUsers, currentPage, pageSize, follows, isAuth, FollowLoading, changeFollow, authId, totalCount, changePage}) => {
-
+	debugger;
 	useEffect(() => {
 		reqUsers(currentPage, pageSize, follows, isAuth);
 	}, [currentPage]);
@@ -26,10 +26,9 @@ let UsersWrapper = ({users, reqUsers, currentPage, pageSize, follows, isAuth, Fo
 		}
 
 		return <UserWrapper id={user.id} 
-							img={'./files/' + user.img} 
-							fullname={`${user.fullname.name}` + ' ' + `${user.fullname.lastname}`} 
-							age={user.age} 
-							location={user.location.city + ' ' + user.location.country}
+							img={'./files/avatar' + user.img + (".jpg" || ".png")} 
+							name={user.name} 
+							mail={user.mail}
 							followElement={followElement} />
 	})
 

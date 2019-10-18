@@ -19,6 +19,7 @@ let PostContainer = (props) => {
 	}
 
 	let deactiveEditMode = () => {
+		debugger;
 		if(LocalPostText != props.text){
 			props.updatePost(LocalPostText, props.postId);
 		}

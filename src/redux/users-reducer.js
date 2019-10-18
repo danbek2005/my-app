@@ -68,34 +68,33 @@ export const UsersReducer = (state = data, action) => {
 
 export const reqUsers = (currentPage, pageSize, follows, isAuth) => async (dispatch) => {
 	dispatch(users_switchLoading(true)); 
-
 	let res = await new API().reqUsers(currentPage, pageSize);
 	let data = res.data;
 
-	var length = data.obj.length, i = 0;
+	var length = data.users.length, i = 0;
 	while(i < length){
-		if(data.obj[i] === null){
-			data.obj.splice(i, 1);
+		if(data.users[i] === null){
+			data.users.splice(i, 1);
 			i = -1;
 		}
 		i++;
 	}
 	if(isAuth){
-		for (var i = 0; i < data.obj.length; i++) {
+		for (var i = 0; i < data.users.length; i++) {
 			var isFollow = false;
 			for (var a = 0; a < follows.length; a++) {
-				if(data.obj[i].id == follows[a]){
-					data.obj[i].followed = 'UnFollow';
+				if(data.users[i].id == follows[a]){
+					data.users[i].followed = 'UnFollow';
 					var isFollow = true;
 				}
 			}
 			if(!isFollow){
-				data.obj[i].followed = 'Follow';
+				data.users[i].followed = 'Follow';
 			}
 
 		}			
 	}
-	dispatch(users_setUsers(data.obj)); 
+	dispatch(users_setUsers(data.users)); 
 	dispatch(users_setTotalCount(data.totalCount)); 
 	dispatch(users_switchLoading(false)); 
 }

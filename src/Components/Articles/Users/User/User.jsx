@@ -16,9 +16,7 @@ let User = (props) => {
 			</div>
 			</div>
 			<div className={classes.User_Info}>
-				<div className={classes.User_Name}>{props.fullname}</div>
-				<div className={classes.User_Age}>{props.age}</div>
-				<div className={classes.User_Location}>{props.location}</div>
+				<div className={classes.User_Name}>{props.name}</div>
 			</div>
 		</div>
 	)

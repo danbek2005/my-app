@@ -3,7 +3,7 @@ import Qs from 'qs';
 import $ from 'jquery';
 class API{
 	constructor(){
-		this.baseUrl = "http://localhost:4000";
+		this.baseUrl = "http://danbek.red/socialNetwork-Server";
 	}
 
     /*-----------------------------
@@ -16,14 +16,8 @@ class API{
     auth(data){
         return axios.get(this.baseUrl + "?type=AUTH&name="+data.name+"&mail="+data.mail+"&password=" + data.password)
     }
-    checkField(data){
-        return axios.get(this.baseUrl + "?type=CHECK_FIELD&key=" + data.type + "&value=" + data.value);
-       }
     getProfile(id){
         return axios.get(this.baseUrl + "?type=GET_PROFILE&id=" + id);
-    }
-    getNewFollows(obj){
-        return axios.get(this.baseUrl + "?type=GET_NEW_FOLLOWS&name="+obj['name']+"&mail="+obj['mail']);
     }
     getPosts(id){
         return axios.get(this.baseUrl + "?type=GET_POSTS&id=" + id);
@@ -34,8 +28,9 @@ class API{
     -----------------------------*/
 
 	changeFollow(authId, id, text){
+        debugger;
         return axios.post(this.baseUrl, Qs.stringify({
-           type: 'changeFollow',
+           type: 'CHANGE_FOLLOW',
            authId: authId,
            id: id,
            follow: text
@@ -43,26 +38,30 @@ class API{
     }
 
     setPost(id, text){
+        debugger;
         return axios.post(this.baseUrl, Qs.stringify({
-                type: 'setPost',
+                type: 'SET_POST',
                 id: id,
                 text: text
         }));
     }
-    updatePost(text, postId){
+    updatePost(text, id){
+        debugger;
         return axios.post(this.baseUrl, Qs.stringify({
-                type: 'updatePost',
+                type: 'UPDATE_POST',
                 text: text,
-                postId: postId
+                id: id
         }));
     }
     deletePost(postId){
+        debugger;
         return axios.post(this.baseUrl, Qs.stringify({
-            type: 'deletePost',
+            type: 'DELETE_POST',
             postId: postId
         }));
     }
     updateLikesVal(data){
+        debugger;
         return axios.post(this.baseUrl, Qs.stringify({
                 type: data.type, 
                 action: data.action.toLowerCase(), 

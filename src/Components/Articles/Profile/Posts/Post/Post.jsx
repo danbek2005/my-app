@@ -5,7 +5,7 @@ import Like from './../Like/Like.jsx';
 let Post = (props) => {
 	return  <div className={classes.Post}>
 		    	<div className={classes.Post_Img}>
-					<img src={'http://localhost:3000/files/' + props.img}/>
+					<img src={'http://localhost:3000/files/avatar' + props.img + ('.jpg' || '.png')}/>
 				</div>
 				<div className={classes.Post_Body}>
 					<div className={classes.Post_User}>

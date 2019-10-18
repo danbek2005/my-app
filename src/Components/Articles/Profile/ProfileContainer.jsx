@@ -52,6 +52,6 @@ export default compose(
 		props.getPosts(props.profilePage.user.id);
 	}
 			return (
-				<Profile updateLikesVal={props.updateLikesVal} profileId={props.profilePage.user.id} deletePost={props.deletePost} authId={props.authId} updatePost={props.updatePost} isPostHave={props.profilePage.isPostHave} posts={props.profilePage.posts} name={props.profilePage.user.name} surname={props.profilePage.user.surname} age={props.profilePage.user.age} city={props.profilePage.user.location.city} country={props.profilePage.user.location.country} img={props.profilePage.user.img} addPost={props.addPost}/>
+				<Profile updateLikesVal={props.updateLikesVal} profileId={props.profilePage.user.id} deletePost={props.deletePost} authId={props.authId} updatePost={props.updatePost} isPostHave={props.profilePage.isPostHave} posts={props.profilePage.posts} name={props.profilePage.user.name} mail={props.profilePage.user.mail} img={props.profilePage.user.img} addPost={props.addPost}/>
 			);
 });

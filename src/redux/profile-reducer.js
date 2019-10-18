@@ -9,12 +9,7 @@ let data = {
 		user: {
 			id: null,
 			name: null,
-			surname: null,
-			age: null,
-			location: {
-				city: null,
-				country: null 
-			},
+			mail: null,
 			img: null
 		},
 		posts: [],
@@ -48,13 +43,8 @@ export const ProfileReducer = (state = data, action) => { //state = ProfilePage
 				...state,
 				user: {
 					id: action.data.id,
-					name: action.data.fullname['name'],
-					surname: action.data.fullname['lastname'],
-					age: action.data.age,
-					location: {
-						city: action.data.location['city'],
-						country: action.data.location['country']
-					},
+					name: action.data.name,
+					mail: action.data.mail,
 					img: action.data.img
 				},
 				isPostHave: false,
@@ -64,7 +54,7 @@ export const ProfileReducer = (state = data, action) => { //state = ProfilePage
 		case 'SET-PROFILE-POSTS': {
 			return {
 				...state,
-				posts: action.data.posts,
+				posts: action.data,
 				isPostHave: true
 			}
 		}
@@ -132,7 +122,7 @@ export const getProfile = (url, authId) => async (dispatch) => {
 			id = authId;
 		}
 		let res = await new API().getProfile(id);
-  		dispatch(profile_setProfilePage(res.data));
+  		dispatch(profile_setProfilePage({...res.data, id: id}));
 }
 
 /*------------------------
@@ -141,7 +131,7 @@ export const getProfile = (url, authId) => async (dispatch) => {
 
 let transUsersАsses = (Assessment) => {
 	if(Assessment == null){
-		return null;
+		return [];
 	}
 	Assessment = Assessment.split(';');
 	Assessment.splice(-1, 1);
@@ -156,7 +146,7 @@ export const getPosts = (id) => async (dispatch) => {
 	let res = await new API().getPosts(id);
 	let data = res.data;
 	if(data.length != 0){
-		data.posts = data.posts.map((post) => {
+		data = data.map((post) => {
 			return {
 				...post,
 				users: {
@@ -176,8 +166,10 @@ export const setPost = (data) => async (dispatch) => {
 	}
 }
 
-export const updatePost = (text, postId) => async (dispatch) => {  
+export const updatePost = (text, postId) => async (dispatch) => {
+debugger;  
 	let res = await new API().updatePost(text, postId);
+	debugger;
 	dispatch(profile_setNewPostVal(res.data));
 }
 
@@ -187,7 +179,9 @@ export const deletePost = (postId) => (dispatch) => {
 }
 
 export const updateLikesVal = (data) => async (dispatch) => {
+	debugger;
 	let res = await new API().updateLikesVal(data);
+	debugger;
 	let newData = {
 		...res.data,
 		users: {
@@ -195,5 +189,6 @@ export const updateLikesVal = (data) => async (dispatch) => {
 			dislike: transUsersАsses(res.data.users.dislike)
 		}
 	}
+	debugger;
 	dispatch(profile_updatePostAssess(data, newData));
 }
