@@ -3,7 +3,7 @@ import Qs from 'qs';
 import $ from 'jquery';
 class API{
 	constructor(){
-		this.baseUrl = "http://danbek.red/socialNetwork-Server";
+		this.baseUrl = "https://danbek.red/socialNetwork-Server";
 	}
 
     /*-----------------------------
