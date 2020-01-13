@@ -1,22 +1,22 @@
 
 let data = {
 			users: [
-				{id: 1, name: 'Anna'},
-				{id: 2, name: 'Vlad'},
-				{id: 3, name: 'Masha'}],
+				{id: 2, login: 'Anna'},
+				{id: 2, login: 'Vlad'},
+				{id: 2, login: 'Masha'}],
 			messages: [
 				{
-					id: 1,
+					id: 2,
 					text: 'Hello', 
-					user: 'Anna'
+					login: 'Anna'
 				},
 				{
 					id: 2, 
 					text:'My name is Anna',
-					user: 'Anna',
+					login: 'Anna',
 				},
-				{id: 3, text:'I am from Russia', user: 'Anna'},
-				{id: 4, text:'Lorem ipsum dolor sit amet.', user: 'me'}
+				{id: 2, text:'I am from Russia', login: 'Anna'},
+				{id: 1, text:'Lorem ipsum dolor sit amet.', login: 'dan_bek'}
 			]
 }
 
@@ -25,7 +25,7 @@ let dialogsReducer = (state = data, action) => {
 		case 'ADD-MESSAGE': {
 			return {
 				...state,
-				messages: [...state.messages, {id: 5, text: action.data.text, user: action.data.user}]
+				messages: [...state.messages, {id: action.data.id, text: action.data.text, login: action.data.login}]
 			}
 		}
 	}

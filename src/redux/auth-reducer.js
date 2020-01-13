@@ -7,12 +7,12 @@ let data = {
 		name: null,
 		isAuth: false,
 		follows: null,
+		img: null,
 		errors: {
 			name: null,
 			mail: null,
 			password: null
-		}
-}
+		}}
 
 export const AuthReducer = (state = data, action) => {
 
@@ -23,6 +23,7 @@ export const AuthReducer = (state = data, action) => {
 				name: action.data.name,
 				id: action.data.id,
 				follows: action.data.follows,
+				img: action.data.img,
 				isAuth: true
 			}
 		}
@@ -69,8 +70,10 @@ export const formCheck = (data) => async (dispatch) => {
 		cookieCreator({
 			name: data.name,
 			id: res.data.id,
-			follows: res.data.follows
+			follows: res.data.follows,
+			img: res.data.img
 		});
+		window.location.reload();
 	}
 	else if(res.data.status == 'error'){
 		let obj = {}
@@ -92,8 +95,8 @@ export const logout = () => {
 }
 export const isCookie = () => {
 	return (dispatch) => {
-		if (getCookie(['id'])) {
-			let data = getCookie(['id', 'name', 'follows']);
+		let data;
+		if (data = getCookie(['id', 'name', 'follows', 'img'])) {
 			dispatch(auth_setAuthUser(data));	
 			return true;	
 		}else{
@@ -106,7 +109,7 @@ let getCookie = (arr, obj = {}) => {
 	for(let i = 0; i < arr.length; i++){
 		let value = "; " + document.cookie;
   		let parts = value.split("; " + arr[i] + "=");
-  		if(parts.length == 2){
+  		if(parts.length > 1){
   			obj[arr[i]] = parts.pop().split(";").shift()
   		}else{
   			return false;	

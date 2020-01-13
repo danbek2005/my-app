@@ -92,7 +92,6 @@ export const ProfileReducer = (state = data, action) => { //state = ProfilePage
 		}
 
 		case 'UPDATE-POST-LIKE-VAL': {
-			debugger;
 			return {
 				...state,
 				posts: [...state.posts].map((post) => {
@@ -161,27 +160,25 @@ export const getPosts = (id) => async (dispatch) => {
 
 export const setPost = (data) => async (dispatch) => {
 	let res = await new API().setPost(data.id, data.post);
+	debugger;
 	if(res.data.status == 'ok'){
 		dispatch(profile_addPost(data, res));
 	}
 }
 
 export const updatePost = (text, postId) => async (dispatch) => {
-debugger;  
 	let res = await new API().updatePost(text, postId);
-	debugger;
 	dispatch(profile_setNewPostVal(res.data));
 }
 
-export const deletePost = (postId) => (dispatch) => {
+export const deletePost = (postId) => async (dispatch) => {
 	dispatch(profile_delPost(postId));
-	let res = new API().deletePost(postId);
+	let res = await new API().deletePost(postId);
+	debugger;
 }
 
 export const updateLikesVal = (data) => async (dispatch) => {
-	debugger;
 	let res = await new API().updateLikesVal(data);
-	debugger;
 	let newData = {
 		...res.data,
 		users: {
@@ -189,6 +186,5 @@ export const updateLikesVal = (data) => async (dispatch) => {
 			dislike: transUsersАsses(res.data.users.dislike)
 		}
 	}
-	debugger;
 	dispatch(profile_updatePostAssess(data, newData));
 }

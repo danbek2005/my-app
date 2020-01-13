@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+
 const getUsersFromState = (state) => {
 	return state.usersPage.users;
 }

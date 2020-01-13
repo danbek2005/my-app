@@ -16,12 +16,14 @@ export const app_initialSuccess = () => {
 ------------------------------------*/
 
 export const auth_setUser = (data, res) => {
+	debugger;
 	return {
 			type: 'SET-AUTH-USER',
 			data: {
 				...data,
 				id: res.data.id,
-				follows: res.data.follows
+				follows: res.data.follows,
+				img: res.data.img
 			}
 	}
 }
@@ -114,7 +116,6 @@ export const users_setTotalCount = (totalCount) => {
 }
 
 export const users_switchFollLoad = (FollowLoading ,id) => {
-	debugger;
 	return {type: "SWITCH-FOLLOW-LOADING", FollowLoading: {status: FollowLoading, id: id}}
 }
 

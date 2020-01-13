@@ -1,14 +1,470 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+*{
+	margin: 0;
+	padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+a{
+	text-decoration: none;
+}
+
+li{
+	list-style: none;
+}
+
+body{
+	width: 100vw;
+	overflow-x: hidden;
+	font-family: "Open Sans", sans-serif;
+}
+
+textarea{
+	resize: none;
+}
+.d-flex{
+	display: flex;
+}
+
+.container{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.flex-column{
+	flex-direction: column;
+}
+
+.content{
+	width: 80vw;
+	float: right;
+}
+
+.aling-items-center{
+	align-items: center;
+}
+
+nav{
+	padding-top: 5vh;
+	height: 100vh;
+	position: fixed;
+	width: 20vw;
+	float: left;
+	background: #e75f5f;
+	font-family: 'Open Sans', sans-serif;
+	color: #fff;
+}
+
+.main-menu{
+	flex-direction: column;
+	padding-left: 10px;
+}
+
+.main-menu > .menu-item:not(:first-child){
+	margin: 5px 0 0 0;
+}
+
+.main-menu a{
+	color: #ffffff;
+}
+
+.main-menu a:hover{
+	border-bottom: 3px solid #faff00;
+	transition: 0.09s ease;
+}
+
+.main-auth{
+	flex-direction: column;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.auth-exit{
+	position: absolute;
+	bottom: 9%;
+	left: 15%;
+	font-size: 18px;
+	font-weight: 400;
+	transition: 0.5s ease;
+}
+
+.auth-exit:hover{
+	margin-left: -10%;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.auth-img > img{
+	width: 50%;
+}
+
+.auth-name{
+	font-weight: 400;
+}
+
+header{
+	background: url(../public/files/header.jpg) center top / cover;
+	height: 32vh;
+}
+
+.login-form{
+	width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 22px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.form-item{
+	flex-direction: column;
+}
+
+.form-item:not(:first-child){
+	margin-top: 10px;
+}
+
+.form-btn{
+	margin-top: 5vh;
+    padding: 5px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-input{
+	padding: 5px;
+}
+
+.form-error{
+	cursor: pointer;
+	position: relative;
+	align-items: center;
+}
+
+.form-error-text{
+	display: none;
+    position: absolute;
+    left: 60px;
+    width: 200px;
+    background: #ff7575;
+    padding: 10px;
+    top: 30px;
+    text-align: center;
+}
+
+.form-error-img{
+	position: absolute;
+	margin: 3px 0 0 10px;
+	height: auto;
+	width: 20px;
+}
+
+.form-error:hover .form-error-text{
+	display: block;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	transition: ease 10s;
+}
+
+.main-error:hover .form-error-text{
+	display: block;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	transition: ease 10s;
+}
+
+.main-error{
+	cursor: pointer;
+	margin-left: 10px;
+    align-items: center;
+    position: absolute;
+    left: 120%;
+}
+
+.main-error > .form-error-img{
+	position: static;
+}
+
+.profile-info{
+	height: 1000px;
+	flex-direction: column;
+	width: 30%;
+	background: #efff00d9;
+}
+
+.profile-info > .info-img{
+	width: 50%;
+	margin: 0 auto;
+    margin-top: 20px;
+}
+.profile-info > .info-img > img{
+	width: 100%;
+    border-radius: 5%;
+    border: 1px solid silver;
+    /* padding: 5px; */
+    transition: 0.5s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.profile-info > .info-img > img:hover {
+    box-shadow: #524d4d 1px 1px 20px 5px;
+    transition: 0.5s ease-in-out;
+}
+
+
+.profile-info > .info-name, .info-mail{
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 80px;
+}
+
+.profile-info > .info-name > div{
+	display: inline;
+}
+
+.profile-info > .info-mail > div{
+	display: inline;
+}
+
+.profile-info > .info-name > div > span{
+	margin-left: 10px;
+	border-bottom: 2px solid black;
+}
+
+.profile-info > .info-mail > div > span{
+	margin-left: 10px;
+	border-bottom: 2px solid black;
+}
+
+.post-form{
+	width: 70%;
+	margin: 0 auto;
+	margin-top: 10vh;
+	align-items: center;
+}
+
+.form-textarea{
+	padding: 10px;
+}
+
+.post-form button{
+	margin-top: 20px;
+	padding: 5px 20px;
+	background: #f8ff2d;
+	border: 2px solid #c9cc33;
+	cursor: pointer;
+	border-radius: 2px;
+	font-size: 17px;
+	transition: 0.5s ease;
+}
+
+.post-form button:hover{
+	box-shadow: 0 0 10px 0px #000000b5;
+    background: #ff9900de;
+    border: 2px solid #ff7600eb;
+}
+
+.Posts{
+	margin: 0 auto;
+}
+
+.post{
+	margin-top: 10vh;
+}
+
+.post-header{
+	justify-content: center;
+}
+
+.post-header > .post-img img{
+	width: 30px;
+	border-radius: 50%;
+}
+
+.post-header > .post-user{
+	margin-left: 10px;
+}
+
+
+.post-header > .delete-btn{
+	margin-left: auto;
+}
+
+.post-header > .delete-btn > img{
+	width: 15px;
+}
+
+.post-body{
+
+}
+
+.post-footer{
+	margin-top: 20px;
+}
+
+
+.post-like{
+	align-items: center;
+}
+
+.post-like img{
+	width: 20px;
+}
+
+.post-like img:first-child{
+	margin-right: 10px;
+}
+
+.like-access{
+	margin-left: 5px;
+}
+
+.paginator{
+	margin: 10px 0 0 5%;
+}
+
+.paginator-select-page{
+	font-weight: bold;
+}
+.paginator-pages li{
+	cursor: pointer;
+}
+.paginator-pages li:not(:first-child){
+	margin-left: 10px;
+}
+
+
+.main-users{
+	width: 80%;
+    padding: 50px 0 0 30px;
+}
+
+.users-item{
+	padding: 10px;
+    display: flex;
+}
+
+.user-img{
+	position: relative;
+    width: 20%;
+}
+
+.user-img img{
+	width: 100%;
+}
+
+.user-follow{
+	position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px 10px;
+    width: 50%;
+    transition: 0.6s ease;
+    background: #9dff008a;
+    border: 0;
+    cursor: pointer;
+}
+
+.follow-preloader{
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.follow-preloader img{
+	width: 20px;
+}
+
+.user-info{
+	margin-left: 5%;
+    line-height: 30px;
+}
+
+
+.user-follow:hover {
+    box-shadow: inset 0 0 5px 0px black;
+}
+
+.main-dialogs{
+	display: flex;
+    padding: 10px 0 0 20px;
+}
+
+.dialogs-contacts{
+	width: 20%;
+    padding: 5px;
+    background: #ffd4009c;
+}
+
+.dialogs-contact {
+    margin-bottom: 5px;
+    background: #ff8100de;
+    padding: 5px;
+    box-shadow: 0.5px 0.5px 2px black;
+    transition: 0.1s ease;
+    cursor: pointer;
+}
+
+contact:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.messages{
+	width: 80%;
+    padding: 20px 0 0 40px;
+    background: #ffa50061;
+    height: 100vh;
+}
+
+.message{
+	width: 100%;
+    padding: 6px;
+    border-radius: 2px;
+}
+
+.message span{
+     display: inline-block;  
+}
+
+.message-right{
+	float: right;
+}
+
+.message-left span{
+	background: #ee93ff6e;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.message-right span{
+	float: right;
+	margin-right: 40px;
+	background: #b6de5696;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.dialogs-contact a {
+    color: #352e2e;
+    font-weight: 500;
+}
+
+.dialogs-contact:hover {
+    box-shadow: 0.5px 0.5px 0px transparent;
+}
+
+.message-form{
+	margin-top: 20vh;
+	display: flex;
+    width: 100%;
+}
+
+.message-input{
+    height: 21px;
+    width: 30%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.message-btn{
+	margin-left: 30px;
+    padding: 0 25px;
+    cursor: pointer;
 }

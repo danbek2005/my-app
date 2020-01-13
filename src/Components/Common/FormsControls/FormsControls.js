@@ -3,37 +3,33 @@ import classes from './FormsControls.module.css';
 import {reduxForm, Field } from 'redux-form';
 export const TextArea = ({input, meta, ...props}) => {
 	return (
-			<div className={classes.FormControl}>
-				<div className={classes.FormControl_Field}>
-					<textarea {...input} {...props} className={meta.touched && meta.error ? classes.error_Field : null}/>
-				</div>
-				<div className={classes.FormControl_Span}>
-					<span>{meta.touched && meta.error ? meta.error : null}</span>
-				</div>
+			<div className="d-flex flex-column aling-items-center">
+				<textarea {...input} {...props} className="form-textarea"/>
+				<span className="form-error">{meta.touched && meta.error ? meta.error : null}</span>
 			</div>
 	) 
 }
 
 export const Input = ({input, meta, ...props}) => {
 	return (
-		<div className={classes.FormControl}>
-			<div className={classes.FormControl_Field}>
-				<input {...input} {...props} className={meta.touched && meta.error ? classes.error_Field : null}/>
+			<div className="form-input-wrapper d-flex">
+				<input {...input} {...props} className="form-input"/>
+				{(meta.touched && meta.error) &&
+					<div className="form-error">
+						<span className="form-error-text">
+							{meta.touched ? meta.error : null}
+						</span>
+						<img className="form-error-img" src="http://localhost:3000/files/warning.jpg" alt="warning"/>
+					</div>
+				}
 			</div>
-			{(meta.touched && meta.error) &&
-				<div className={classes.FormControl_Span}>
-					<span>{meta.touched ? meta.error : null}</span>
-				</div>
-			}
-		</div>
 	) 
 }
 
 export const FieldCreator = (fieldName, el, type, validators) => {
-	let className = 'LoginForm_' + fieldName;
 	let smallFieldName = fieldName.toLowerCase();
 	return (
-		<div className={classes[className]}>
+		<div className="form-item">
 			<label htmlFor={smallFieldName}>{fieldName}: </label>
 			<Field name={smallFieldName} component={el} type={type} placeholder={"Enter your " + smallFieldName} validate={validators}/>
 		</div>

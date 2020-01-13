@@ -19,6 +19,5 @@ let store = applyMiddleware(thunk)(createStore)(state, window.__REDUX_DEVTOOLS_E
 
 
 window.store = store;
-console.log(store);
 
 export default store;

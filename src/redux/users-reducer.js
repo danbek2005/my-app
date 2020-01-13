@@ -10,7 +10,7 @@ import {users_switchLoading,
 
 let data = {
 		users: [],
-		pageSize: 1,
+		pageSize: 2,
 		totalCount: 10,
 		currentPage: 1,
 		Loading: false,
@@ -70,7 +70,7 @@ export const reqUsers = (currentPage, pageSize, follows, isAuth) => async (dispa
 	dispatch(users_switchLoading(true)); 
 	let res = await new API().reqUsers(currentPage, pageSize);
 	let data = res.data;
-
+	debugger;
 	var length = data.users.length, i = 0;
 	while(i < length){
 		if(data.users[i] === null){
